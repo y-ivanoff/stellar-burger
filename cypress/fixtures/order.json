@@ -1,0 +1,35 @@
+{
+    "success": true,
+    "orders": [
+        {
+            "_id": "6820a253c2f30c001cb22eca",
+            "ingredients": [
+                "643d69a5c3f7b9001cfa093c",
+                "643d69a5c3f7b9001cfa093e",
+                "643d69a5c3f7b9001cfa0943",
+                "643d69a5c3f7b9001cfa093c"
+            ],
+            "status": "done",
+            "name": "Краторный space люминесцентный бургер",
+            "createdAt": "2025-05-11T13:12:51.630Z",
+            "updatedAt": "2025-05-11T13:12:52.431Z",
+            "number": 76798
+        },
+        {
+            "_id": "6820ca0bc2f30c001cb22f69",
+            "ingredients": [
+                "643d69a5c3f7b9001cfa093d",
+                "643d69a5c3f7b9001cfa0947",
+                "643d69a5c3f7b9001cfa0943",
+                "643d69a5c3f7b9001cfa093d"
+            ],
+            "status": "done",
+            "name": "Space флюоресцентный фалленианский бургер",
+            "createdAt": "2025-05-11T16:02:19.716Z",
+            "updatedAt": "2025-05-11T16:02:20.462Z",
+            "number": 76820
+        }
+    ],
+    "total": 76449,
+    "totalToday": 77
+}
