@@ -132,6 +132,7 @@ export const userSlice = createSlice({
         state.isLoadong = false;
         state.error = null;
         state.user = payload.user;
+        state.isAuthorized = true;
       })
       .addCase(forgotPasswordThunk.pending, (state) => {
         state.isLoadong = true;
@@ -173,6 +174,8 @@ export const userSlice = createSlice({
       });
   }
 });
+
+export { initialState as userInitialState };
 export const { clearUserError } = userSlice.actions;
 export const {
   getUserStateSelector,
