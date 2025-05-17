@@ -6,9 +6,9 @@ describe('Burger Constructor Test', () => {
   beforeEach(() => {
     setCookie('accessToken', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjBhMjMwYzJmMzBjMDAxY2IyMmVjMyIsImlhdCI6MTc0Njk4Nzk4OSwiZXhwIjoxNzQ2OTg5MTg5fQ.2SdD24vaDy3xVkzUI9MU7Ap_CC9V-bgcmnggjeMV8ug');
     localStorage.setItem('refreshToken', '52950115beee9f6ec6f6b417f6439a2be3d987434845bdf85f06909aad284daff665e2e8b536b873');
-    cy.intercept('GET', `${URL}//auth/user`, {fixture: 'user.json'}).as('getUser');
+    cy.intercept('GET', `${URL}/auth/user`, {fixture: 'user.json'}).as('getUser');
     cy.intercept('GET', `${URL}/ingredients`, {fixture: 'ingredients.json'}).as('getIngredients');
-    cy.visit('http://localhost:4000');
+    cy.visit('');
     cy.wait('@getUser');
   });
   afterEach(() => {

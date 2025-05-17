@@ -92,7 +92,7 @@ const constructorSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.orderRequest = false;
-        state.orderModalData = payload.order;
+        state.orderModalData = payload;
         state.constructorItems = {
           bun: null,
           ingredients: []

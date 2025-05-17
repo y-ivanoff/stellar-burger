@@ -9,16 +9,16 @@ const setupStore = () =>
     }
   });
 
-describe('Тесты экшенов ленты', () => {
-  describe('Тесты экшена получения ленты', () => {
-    test('Тест экшена ожидания ответ после запроса ленты', () => {
+describe('The tapes action Tests', () => {
+  describe('Tape Acquisition Action Tests', () => {
+    test('Waiting action test response after tape request', () => {
       const store = setupStore();
       store.dispatch({ type: getFeedThunk.pending.type });
       const state = store.getState();
       expect(state.feed.isLoading).toBeTruthy();
       expect(state.feed.error).toBeNull();
     });
-    test('Тест экшена ошибки после запроса ленты', () => {
+    test('Error action test after tape request', () => {
       const store = setupStore();
       const error = 'mocked error';
       store.dispatch({
@@ -29,7 +29,7 @@ describe('Тесты экшенов ленты', () => {
       expect(state.feed.isLoading).toBeFalsy();
       expect(state.feed.error).toBe(error);
     });
-    test('Тест экшена успешного ответа получения ленты', () => {
+    test('The test of the action of the successful response of receiving the feed', () => {
       const mockedPayload = {
         orders: [
           {
@@ -77,15 +77,15 @@ describe('Тесты экшенов ленты', () => {
       expect(state.feed.totalToday).toBe(mockedPayload.totalToday);
     });
   });
-  describe('Тесты экшена получения ленты ЛК', () => {
-    test('Тест экшена ожидания ответ после запроса ленты', () => {
+  describe('LC Tape Acquisition Action Tests', () => {
+    test('Waiting action test response after tape request', () => {
       const store = setupStore();
       store.dispatch({ type: getOrdersThunk.pending.type });
       const state = store.getState();
       expect(state.feed.isLoading).toBeTruthy();
       expect(state.feed.error).toBeNull();
     });
-    test('Тест экшена ошибки после запроса ленты', () => {
+    test('Error action test after tape request', () => {
       const store = setupStore();
       const error = 'mocked error';
       store.dispatch({
@@ -96,7 +96,7 @@ describe('Тесты экшенов ленты', () => {
       expect(state.feed.isLoading).toBeFalsy();
       expect(state.feed.error).toBe(error);
     });
-    test('Тест экшена успешного ответа получения ленты', () => {
+    test('The test of the action of the successful response of receiving the feed', () => {
       const mockedPayload = {
         _id: '6820a253c2f30c001cb22eca',
         ingredients: [

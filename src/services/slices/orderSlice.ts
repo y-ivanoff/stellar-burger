@@ -14,18 +14,21 @@ const initialState: OrderState = {
   error: null
 };
 
-export const getOrderThunk = createAsyncThunk(
+interface OrderResponse {
+  orders: TOrder[];
+}
+
+declare type Payload = OrderResponse | TOrder;
+
+export const getOrderThunk = createAsyncThunk<Payload, number>(
   'feed/getOrder',
-  (number: number) => getOrderByNumberApi(number)
+  (number) => getOrderByNumberApi(number)
 );
 
 const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {},
-  selectors: {
-    getOrderSelector: (state) => state
-  },
   extraReducers: (builder) => {
     builder
       .addCase(getOrderThunk.pending, (state) => {
@@ -39,12 +42,18 @@ const orderSlice = createSlice({
       .addCase(getOrderThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.order = payload.orders[0];
+        if ('orders' in payload) {
+          state.order = payload.orders[0] || null;
+        } else {
+          state.order = payload;
+        }
       });
   }
 });
 
 export { initialState as orderInitialState };
-export const { getOrderSelector } = orderSlice.selectors;
+
+export const getOrderSelector = (state: { order: OrderState }) =>
+  state.order.order;
 
 export default orderSlice.reducer;
