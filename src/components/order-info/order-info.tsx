@@ -18,7 +18,7 @@ export const OrderInfo: FC = () => {
     dispatch(getOrderThunk(orderNubmer));
   }, [dispatch]);
 
-  const orderData = useSelector(getOrderSelector).order;
+  const orderData = useSelector(getOrderSelector);
 
   const ingredients: TIngredient[] = useSelector(getIngredientsSelector);
 

@@ -3,7 +3,7 @@ import { TConstructorIngredient, TOrder } from '@utils-types';
 import { orderBurgerApi } from '@api';
 import { stat } from 'fs';
 
-interface constructorState {
+export interface constructorState {
   isLoading: boolean;
   constructorItems: {
     bun: TConstructorIngredient | null;
@@ -92,7 +92,7 @@ const constructorSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.orderRequest = false;
-        state.orderModalData = payload.order;
+        state.orderModalData = payload;
         state.constructorItems = {
           bun: null,
           ingredients: []
@@ -101,6 +101,7 @@ const constructorSlice = createSlice({
   }
 });
 
+export { initialState as constructorInitialState };
 export const {
   addIngredient,
   removeIngredient,
